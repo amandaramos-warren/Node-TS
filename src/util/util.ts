@@ -1,48 +1,48 @@
+import UserHelper from "../domain/user/helper/UserHelper";
 class util {
+  static numberValidator(dados: number) {
+    if (!isNaN(dados)) {
+      return true;
+    } else {
+      throw new Error('Campo Number só recebe number só recebe números');
+    }
+  }
 
-    static numberValidator(dados : number){
-        try {
-            if( !isNaN( dados ) ){
-                return true;
-            }else{
-                throw Error
-            }
-        } catch (error : any) {
-            new Error(`Aconteceu um erro com a requisição: ${error.message} `)
+  static fieldValidator(dados: object) {
+    const dadosValores: any[] = Object.values(dados);
+    const dadosParametros: string[] = Object.keys(dados);
+    let i = 0;
+
+    while (i < dadosValores.length) {
+      if (!dadosValores[i]) {
+        if (dadosParametros[i] !== 'whatsapp' && dadosParametros[i] !== 'email_sms') {
+          throw new Error(`Campo ${dadosParametros[i]} está vazio`);
         }
+      }
+      i++;
     }
 
-    static fieldValidator(dados: object){
-        try {
-            const dadosValores : any[] = Object.values(dados)
-            const dadosParametros : string[] = Object.keys(dados)
-            let i = 0
+    return true;
+  }
 
-            while(i < dadosValores.length){
-                if(dadosValores[i] == ""){
-                    throw Error
-                }
-                i++
-            }
+  static birthdateValidator(data: string) {
+    const validData = UserHelper.lenghtValidator(data, 10)
 
-            return true
-        } catch (error: any) {
-            new Error(`Aconteceu um erro com a requisição: ${error.message} `)
-        }
+      if (Date.parse(data) && validData) {
+        return true;
+      }else{
+        throw new Error("Data inválida")
+      }
+
+  }
+
+  static postalCodeValidator(postalCode: string){
+    const validPostalCode = UserHelper.lenghtValidator(postalCode, 8)
+    if(validPostalCode){
+      return true
     }
-
-    static birthdateValidator(dados : string ) {
-        try {
-            if(Date.parse(dados)){
-                return true
-            }else{
-                Error
-            }
-        } catch (error: any) {
-            new Error(`Aconteceu um erro com a requisição: ${error.message} `)
-        }
-    }
-
-};
+      throw new Error("CEP inválido")
+  }
+}
 
 export default util;

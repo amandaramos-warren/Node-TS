@@ -1,16 +1,27 @@
 import UtilUser from "../utilUser/utilUser";
-import util from "../../../util/util";
+import Util from "../../../util/util";
+import User from "../mocks/UserMock";
+
 class UserService {
     static criaUser(dados:any) {
-        const email = UtilUser.emailValidator(dados.email , dados.email_confirmation);
-        const field = util.fieldValidator(dados)
-        const number = util.numberValidator(dados.number)
-        const birthdate = util.birthdateValidator(dados.birthdate)
-        return email;
-    }
+        const field = Util.fieldValidator(dados);
+        const email = UtilUser.emailValidator(dados.email, dados.email_confirmation);
+        const cpf = UtilUser.cpfValidator(dados.cpf);
+        const cellphone = UtilUser.cellphoneValidator(dados.cellphone);
+        const birthdate = Util.birthdateValidator(dados.birthdate);
+        const postalCode = Util.postalCodeValidator(dados.postal_code);
+        const number = Util.numberValidator(dados.number);
 
-    
-    
+        const verificações = [field, email, cpf, cellphone, birthdate, postalCode, number];
+
+        if(verificações){
+            User.push(dados);
+        }
+        return verificações;
+}
+
+
+
 }
 
 export default UserService;

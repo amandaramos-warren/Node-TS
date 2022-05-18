@@ -7,7 +7,7 @@
     "start": "ts-node src/index.ts",
     "dev": "nodemon --exec ts-node src/index.ts"
   },
-  "author": "Angelo",
+  "author": "Amanda",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.13",

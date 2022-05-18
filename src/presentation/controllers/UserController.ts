@@ -1,29 +1,26 @@
 import { Request, Response } from "express";
-import UserService from "../../domain/user/services/UserService"; 
+import UserService from "../../domain/user/services/UserService";
 
 
 class UserController {
   static handle( req : Request , res : Response ) {
     const dados = req.body;
 
-    const teste1 = UserService.criaUser(dados)
-    
-    try {
-      if(teste1){
-        res.json("aqui")
-      }else{
-        new Error("foi")
-        throw Error
-      }
-    } catch (Error: any) {
-      res.sendStatus(400).send(Error)
-      
-  }
 
-    // let validator: any[] = [ email , field , number , birthdate ]
-    // let user = UserService.user(validator)
-    
-    
+
+    try {
+      const criaUser = UserService.criaUser(dados)
+      if(criaUser){
+        res.status(200).json("Usuário criado")
+      }
+    } catch (e: any) {
+      // console.error(e)
+      res.status(400).json(e.message);
+
+
+    }
+
+
   }
 }
 
