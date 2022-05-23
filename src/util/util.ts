@@ -26,7 +26,7 @@ class util {
   }
 
   static birthdateValidator(data: string) {
-    const validData = UserHelper.lenghtValidator(data, 10)
+    const validData = UserHelper.lenghtValidate(data, 10)
 
       if (Date.parse(data) && validData) {
         return true;
@@ -37,7 +37,7 @@ class util {
   }
 
   static postalCodeValidator(postalCode: string){
-    const validPostalCode = UserHelper.lenghtValidator(postalCode, 8)
+    const validPostalCode = UserHelper.lenghtValidate(postalCode, 8)
     if(validPostalCode){
       return true
     }

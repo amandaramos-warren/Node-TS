@@ -1,39 +1,32 @@
-import { cp } from "fs/promises";
-import UserHelper from "../helper/UserHelper";
+import UserHelper from '../helper/UserHelper';
 
-class UtilUser{
-  static emailValidator( email:String , email_confirmation:String ){
-          if(email === email_confirmation){
-              return true;
-          }else{
-              throw new Error("Emails não coincidem");
-          }
-  };
-
-  static cellphoneValidator(cellphone:String){
-    const validCellphone = UserHelper.lenghtValidator(cellphone, 11, 12)
-
-    if(validCellphone){
-      return true
-    }else{
-      throw new Error("Número de telefone inválido")
+class UtilUser {
+  static emailValidator(email: string, email_confirmation: string) {
+    if (email === email_confirmation) {
+      return true;
+    } else {
+      throw new Error('Emails não coincidem');
     }
-
   }
 
-  static cpfValidator(cpf: string){
+  static cellphoneValidator(cellphone: string) {
+    const validCellphone = UserHelper.lenghtValidate(cellphone, 11, 12);
 
-    const teste1 = UserHelper.isCpfValid(cpf)
-    if (teste1){
-      return true
-    }else{
-      throw new Error("CPF inválido")
+    if (validCellphone) {
+      return true;
+    } else {
+      throw new Error('Número de telefone inválido');
     }
-
   }
 
-
-
+  static cpfValidator(cpf: string, user: object[]) {
+    const cpfValid = UserHelper.CpfValidate(cpf);
+    if (cpfValid) {
+      UserHelper.checkIfEquals(cpf, user, 'CPF');
+      return true;
+    } else {
+      throw new Error('CPF inválido');
+    }
+  }
 }
-// export default isCpfValid;
 export default UtilUser;
