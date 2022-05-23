@@ -26,6 +26,16 @@ class UserHelper {
 
   static CpfValidate(cpf: string) {
     let cpfArray = Array.from(cpf, Number);
+
+    let teste = cpfArray[0];
+    for(let i=1; i<cpfArray.length;i++){
+      if(cpfArray[i]!==teste){
+        break;
+      }else if(i===cpfArray.length-1){
+        return false;
+      }
+    }
+
     const confirmationDigits = cpfArray.slice(-2);
     cpfArray = cpfArray.slice(0, -2);
 
