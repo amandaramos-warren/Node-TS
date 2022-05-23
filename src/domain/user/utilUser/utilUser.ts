@@ -1,4 +1,5 @@
 import UserHelper from '../helper/UserHelper';
+import Iuser from '../types/UserTypes';
 
 class UtilUser {
   static emailValidator(email: string, email_confirmation: string) {
@@ -19,7 +20,7 @@ class UtilUser {
     }
   }
 
-  static cpfValidator(cpf: string, user: object[]) {
+  static cpfValidator(cpf: string, user: Iuser[]) {
     const cpfValid = UserHelper.CpfValidate(cpf);
     if (cpfValid) {
       UserHelper.checkIfEquals(cpf, user, 'CPF');

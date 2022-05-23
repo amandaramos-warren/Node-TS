@@ -1,6 +1,8 @@
+import Iuser from "../types/UserTypes";
+
 class UserHelper {
-  static checkIfEquals(dados: string, user: object[], campo: string) {
-    const cpfUser: any[] = Object.values(user);
+  static checkIfEquals(dados: string, user: Iuser[], campo: string) {
+    const cpfUser: Iuser[] = Object.values(user);
     const lista = cpfUser.map((item) => item.cpf);
 
     lista.forEach((lista) => {

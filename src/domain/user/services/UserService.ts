@@ -1,9 +1,10 @@
 import UtilUser from '../utilUser/utilUser';
 import Util from '../../../util/util';
 import User from '../mocks/UserMock';
+import Iuser from '../types/UserTypes';
 
 class UserService {
-  static criaUser(dados: any) {
+  static criaUser(dados: Iuser) {
     const field = Util.fieldValidator(dados);
     const email = UtilUser.emailValidator(dados.email, dados.email_confirmation);
     const cpf = UtilUser.cpfValidator(dados.cpf, User);

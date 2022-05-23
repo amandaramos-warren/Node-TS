@@ -1,4 +1,5 @@
 import UserHelper from "../domain/user/helper/UserHelper";
+import Iuser from "../domain/user/types/UserTypes";
 class util {
   static numberValidator(dados: number) {
     if (!isNaN(dados)) {
@@ -9,7 +10,7 @@ class util {
   }
 
   static fieldValidator(dados: object) {
-    const dadosValores: any[] = Object.values(dados);
+    const dadosValores: Iuser[] = Object.values(dados);
     const dadosParametros: string[] = Object.keys(dados);
     let i = 0;
 
