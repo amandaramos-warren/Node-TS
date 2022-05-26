@@ -1,17 +1,20 @@
-import UtilUser from '../utilUser/utilUser';
-import Util from '../../../util/util';
-import User from '../mocks/UserMock';
-import Iuser from '../types/UserTypes';
+import UtilUser from '../utilUser/utilUser'
+import Util from '../../../util/util'
+import User from '../mocks/UserMock'
+import Iuser from '../types/UserTypes'
 
 class UserService {
-  static criaUser(dados: Iuser) {
-    const field = Util.fieldValidator(dados);
-    const email = UtilUser.emailValidator(dados.email, dados.email_confirmation);
-    const cpf = UtilUser.cpfValidator(dados.cpf, User);
-    const cellphone = UtilUser.cellphoneValidator(dados.cellphone);
-    const birthdate = Util.birthdateValidator(dados.birthdate);
-    const postalCode = Util.postalCodeValidator(dados.postal_code);
-    const number = Util.numberValidator(dados.number);
+  static criaUser (dados: Iuser) {
+    const field = Util.fieldValidator(dados)
+    const email = UtilUser.emailValidator(
+      dados.email,
+      dados.email_confirmation
+    )
+    const cpf = UtilUser.cpfValidator(dados.cpf, User)
+    const cellphone = UtilUser.cellphoneValidator(dados.cellphone)
+    const birthdate = Util.birthdateValidator(dados.birthdate)
+    const postalCode = Util.postalCodeValidator(dados.postal_code)
+    const number = Util.numberValidator(dados.number)
 
     const verificações = [
       field,
@@ -20,14 +23,14 @@ class UserService {
       cellphone,
       birthdate,
       postalCode,
-      number,
-    ];
+      number
+    ]
 
     if (verificações) {
-      User.push(dados);
+      User.push(dados)
     }
-    return verificações;
+    return verificações
   }
 }
 
-export default UserService;
+export default UserService

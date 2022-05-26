@@ -1,8 +1,10 @@
-import { Router } from 'express';
-import UserController from './controllers/UserController';
+import { Router } from 'express'
+import UserController from './controllers/UserController'
+// import schemaBody from '../middlewares/JoiRoutes';
 
-const router = Router();
+const router = Router()
 
-router.post("/customer", UserController.handle);
+router.post('/customer', UserController.handle)
+// router.get()
 
-export { router };
+export { router }

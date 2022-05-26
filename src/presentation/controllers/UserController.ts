@@ -1,19 +1,24 @@
-import { Request, Response } from 'express';
-import UserService from '../../domain/user/services/UserService';
+import { Request, Response } from 'express'
+import UserService from '../../domain/user/services/UserService'
 
 class UserController {
-  static handle(req: Request, res: Response) {
-    const dados = req.body;
+  static handle (req: Request, res: Response) {
+    const dados = req.body
 
     try {
-      const criaUser = UserService.criaUser(dados);
+      const criaUser = UserService.criaUser(dados)
       if (criaUser) {
-        res.status(200).json('Usuário criado');
+        res.status(200).json({
+          message: 'Usuário Ciado'
+        })
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
-      res.status(400).json(e.message);
+      res.status(400).json({
+        error: e.message
+      })
     }
   }
 }
 
-export default UserController;
+export default UserController
