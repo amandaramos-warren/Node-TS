@@ -17,18 +17,6 @@ class UserHelper {
     return result
   }
 
-  static lenghtValidate (dado: string, min: number, max = 0) {
-    if (max) {
-      if (dado.length >= min && dado.length <= max) {
-        return true
-      } else return false
-    } else {
-      if (dado.length === min) {
-        return true
-      } else return false
-    }
-  }
-
   static CpfValidate (cpf: string) {
     let cpfArray = Array.from(cpf, Number)
 
