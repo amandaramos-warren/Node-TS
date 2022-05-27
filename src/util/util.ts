@@ -29,11 +29,11 @@ class util {
   static birthdateValidator (data: string) {
     const validData = UserHelper.lenghtValidate(data, 10)
 
-    if (Date.parse(data) && validData) {
-      return true
-    } else {
-      throw new Error('Data inválida')
-    }
+    // if (Date.parse(data) && validData) {
+    //   return true
+    // } else {
+    //   throw new Error('Data inválida')
+    // }
   }
 
   static postalCodeValidator (postalCode: string) {

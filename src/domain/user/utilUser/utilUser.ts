@@ -23,7 +23,7 @@ class UtilUser {
   static cpfValidator (cpf: string, user: Iuser[]) {
     const cpfValid = UserHelper.CpfValidate(cpf)
     if (cpfValid) {
-      UserHelper.checkIfEquals(cpf, user, 'CPF')
+      UserHelper.checkIfEquals(cpf, user)
       return true
     } else {
       throw new Error('CPF inválido')

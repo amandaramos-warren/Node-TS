@@ -1,10 +1,10 @@
 import { Router } from 'express'
+import userMiddleware from '../middlewares/userMiddleware'
 import UserController from './controllers/UserController'
-// import schemaBody from '../middlewares/JoiRoutes';
 
 const router = Router()
 
-router.post('/customer', UserController.handle)
+router.post('/customer',userMiddleware, UserController.handle)
 // router.get()
 
 export { router }
