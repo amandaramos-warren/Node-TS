@@ -1,5 +1,3 @@
-// import UtilUser from '../utilUser/utilUser'
-// import Util from '../../../util/util'
 import User from '../mocks/UserMock'
 import Iuser from '../types/UserTypes'
 import userSchema from '../helper/userValidation'
