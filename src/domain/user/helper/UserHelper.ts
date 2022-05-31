@@ -2,7 +2,7 @@ import Iuser from '../types/UserTypes'
 
 class UserHelper {
   static checkIfEquals (dados: string, user: Iuser[]) {
-    const cpfUser: Iuser[] = Object.values(user)
+    const cpfUser = Object.values(user)
     const lista = cpfUser.map((item) => item.cpf)
     let result: boolean = true
     lista.forEach((lista) => {
