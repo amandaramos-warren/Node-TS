@@ -1,29 +1,20 @@
 import Iuser from '../types/UserTypes'
 
 class UserHelper {
-  static checkIfEquals (dados: string, user: Iuser[], campo: string) {
+  static checkIfEquals (dados: string, user: Iuser[]) {
     const cpfUser: Iuser[] = Object.values(user)
     const lista = cpfUser.map((item) => item.cpf)
-
+    let result: boolean = true
     lista.forEach((lista) => {
       if (lista !== dados) {
-        return true
+        result = true
       } else {
-        throw new Error(`${campo} ja existe`)
+        result = false
+        return
+
       }
     })
-  }
-
-  static lenghtValidate (dado: string, min: number, max = 0) {
-    if (max) {
-      if (dado.length >= min && dado.length <= max) {
-        return true
-      } else return false
-    } else {
-      if (dado.length === min) {
-        return true
-      } else return false
-    }
+    return result
   }
 
   static CpfValidate (cpf: string) {
