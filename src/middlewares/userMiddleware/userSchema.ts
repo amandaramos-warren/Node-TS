@@ -9,6 +9,7 @@ const userSchema = Joi.object().keys({
   birthdate: Joi.date().required(),
   email_sms: Joi.boolean(),
   whatsapp: Joi.boolean(),
+  city: Joi.string().required(),
   country: Joi.string().required(),
   postal_code: Joi.string().required(),
   address: Joi.string().required(),

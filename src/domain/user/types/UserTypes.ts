@@ -7,6 +7,7 @@ interface Iuser{
   birthdate: string,
   email_sms: boolean,
   whatsapp: boolean,
+  city: string,
   country: string,
   postal_code: string,
   address: string,
