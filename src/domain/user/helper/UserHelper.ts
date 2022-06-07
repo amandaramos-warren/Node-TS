@@ -3,18 +3,16 @@ import Iuser from '../types/UserTypes'
 class UserHelper {
   static checkIfEquals (dados: string, user: Iuser[]) {
     const cpfUser = Object.values(user)
-    const lista = cpfUser.map((item) => item.cpf)
+    const lista = cpfUser.map((item) => item.email)
     let result: boolean = true
     lista.forEach((lista) => {
       if (lista !== dados) {
         result = true
       } else {
-        result = false
-        return
-
+        throw new Error("Email já cadastrado")
       }
     })
-    return result
+    return true
   }
 
   static CpfValidate (cpf: string) {
@@ -25,7 +23,7 @@ class UserHelper {
       if (cpfArray[i] !== firstDigit) {
         break
       } else if (i === cpfArray.length - 1) {
-        return false
+        throw new Error("CPF inválido")
       }
     }
 
@@ -50,9 +48,9 @@ class UserHelper {
     }
 
     const firstDigitAfterDash = calcDigit()
-    if (firstDigitAfterDash !== confirmationDigits[0]) return false
+    if (firstDigitAfterDash !== confirmationDigits[0]) throw new Error("CPF inválido")
     cpfArray.push(firstDigitAfterDash)
-    if (calcDigit(0) !== confirmationDigits[1]) return false
+    if (calcDigit(0) !== confirmationDigits[1]) throw new Error("CPF inválido")
     return true
   }
 }

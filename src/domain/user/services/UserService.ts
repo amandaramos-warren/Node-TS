@@ -1,15 +1,21 @@
+import UserHelper from '../helper/UserHelper'
 import User from '../mocks/UserMock'
 import Iuser from '../types/UserTypes'
-import userSchema from '../helper/userValidation'
 
 class UserService {
   static async criaUser (dados: Iuser) {
     try {
-      const newUser = await userSchema.validateAsync(dados)
-      User.push(newUser)
-      return { code: 201, msg: {message: 'Usuário Criado'}}
+    UserHelper.CpfValidate(dados.cpf)
+    UserHelper.checkIfEquals(dados.email, User)
+
+      User.push(dados)
+      return { code: 201, msg: 'Usuário Criado'}
     } catch (error) {
-      return { code: 422, msg: error}
+
+      let message
+      if (error instanceof Error) message = error.message
+
+      return { code: 422, msg: message}
     }
   }
 }
