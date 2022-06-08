@@ -1,7 +1,5 @@
 import Iuser from '../types/UserTypes'
 
-const User: Iuser[] = [
-
-]
+const User: Iuser[] = []
 
 export default User
