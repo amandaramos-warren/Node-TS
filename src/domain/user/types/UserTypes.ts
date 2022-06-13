@@ -1,15 +1,15 @@
 interface Iuser{
-  full_name: string,
+  fullName: string,
   email: string,
-  email_confirmation: string,
+  emailConfirmation: string,
   cpf: string,
   cellphone: string,
   birthdate: string,
-  email_sms?: boolean,
+  emailSms?: boolean,
   whatsapp?: boolean,
   city: string,
   country: string,
-  postal_code: string,
+  postalCode: string,
   address: string,
   number: number
 }

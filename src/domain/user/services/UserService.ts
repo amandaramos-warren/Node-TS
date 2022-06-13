@@ -5,17 +5,16 @@ import Iuser from '../types/UserTypes'
 class UserService {
   static async criaUser (dados: Iuser) {
     try {
-    UserHelper.CpfValidate(dados.cpf)
-    UserHelper.checkIfEquals(dados.email, User)
+      UserHelper.CpfValidate(dados.cpf)
+      UserHelper.checkIfEquals(dados.email, User)
 
       User.push(dados)
-      return { code: 201, msg: 'Usuário Criado'}
+      return { code: 201, msg: 'Usuário Criado' }
     } catch (error) {
-
       let message
       if (error instanceof Error) message = error.message
 
-      return { code: 422, msg: message}
+      return { code: 422, msg: message }
     }
   }
 }
