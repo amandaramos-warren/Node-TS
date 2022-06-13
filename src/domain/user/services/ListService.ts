@@ -9,7 +9,7 @@ class ListService {
 
     list.push({ fullName, email, birthdate })
    }
-   return { code: 201, msg: list }
+   return { code: 200, msg: list }
   } catch (error) {
    return { code: 422, msg: error }
   }

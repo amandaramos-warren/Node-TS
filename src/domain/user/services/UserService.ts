@@ -11,9 +11,8 @@ class UserService {
    User.push(dados)
    return { code: 201, msg: 'Usuário Criado' }
   } catch (error) {
-   let message
+   let message = 'Unknown error'
    if (error instanceof Error) message = error.message
-
    return { code: 422, msg: message }
   }
  }
