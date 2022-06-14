@@ -1,6 +1,7 @@
 import Joi from 'joi'
 
-const userSchema = Joi.object().keys({
+const userSchema = Joi.object()
+ .keys({
   fullName: Joi.string().min(3).required(),
   email: Joi.string().email().required(),
   emailConfirmation: Joi.string().email().valid(Joi.ref('email')).required(),
@@ -13,9 +14,10 @@ const userSchema = Joi.object().keys({
   country: Joi.string().required(),
   postalCode: Joi.string().length(8).required(),
   address: Joi.string().required(),
-  number: Joi.number().required()
-}).options({
-  abortEarly: false
-})
+  number: Joi.number().required(),
+ })
+ .options({
+  abortEarly: false,
+ })
 
 export default userSchema
