@@ -1,8 +1,8 @@
-import Iuser from '../types/UserTypes'
+import User from '../mocks/UserMock'
 
 class UserHelper {
-  static checkIfEquals (dados: string, user: Iuser[]) {
-    const cpfUser = Object.values(user)
+  checkIfEquals (dados: string) {
+    const cpfUser = Object.values(User)
     const lista = cpfUser.map((item) => item.email)
     lista.forEach((lista) => {
       if (lista === dados) {
@@ -12,7 +12,7 @@ class UserHelper {
     return true
   }
 
-  static CpfValidate (cpf: string) {
+  cpfValidate (cpf: string) {
     let cpfArray = Array.from(cpf, Number)
 
     const firstDigit = cpfArray[0]
