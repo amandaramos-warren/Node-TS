@@ -2,7 +2,7 @@ import User from '../mocks/UserMock'
 import Iuser from '../types/UserTypes'
 
 class ListService {
-  static async listUser () {
+  async listUser () {
     try {
       const list: Partial<Iuser>[] = []
       for (const pessoa of User) {

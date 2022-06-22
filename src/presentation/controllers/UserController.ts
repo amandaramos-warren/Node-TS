@@ -10,9 +10,7 @@ class UserController {
   }
 
   handle = async (req: Request, res: Response) => {
-    console.log(this.userService)
     const criaUser = await this.userService.criaUser(req.body)
-    console.log(criaUser)
     res.status(criaUser.code).json(criaUser.msg)
   }
 }
