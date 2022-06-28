@@ -1,10 +1,11 @@
 import User from '../mocks/UserMock'
-import Iuser from '../types/UserTypes'
+import IListService from '../interfaces/IListService'
+import IUser from '../interfaces/IUser'
 
-class ListService {
+class ListService implements IListService {
   async listUser () {
     try {
-      const list: Partial<Iuser>[] = []
+      const list: Partial<IUser>[] = []
       for (const pessoa of User) {
         const { fullName, email, birthdate } = pessoa
 

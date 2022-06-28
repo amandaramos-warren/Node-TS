@@ -1,6 +1,7 @@
 import User from '../mocks/UserMock'
+import IUserHelper from '../interfaces/IUserHelper'
 
-class UserHelper {
+class UserHelper implements IUserHelper {
   checkIfEquals (dados: string) {
     const cpfUser = Object.values(User)
     const lista = cpfUser.map((item) => item.email)

@@ -1,11 +1,13 @@
 import { inject, injectable } from 'tsyringe'
 import UserHelper from '../helper/UserHelper'
 import User from '../mocks/UserMock'
-import Iuser from '../types/UserTypes'
+import IUserHelper from '../interfaces/IUserHelper'
+import IUserService from '../interfaces/IUserService'
+import Iuser from '../interfaces/IUser'
 
 @injectable()
-class UserService {
-  userHelper: UserHelper
+class UserService implements IUserService {
+  userHelper: IUserHelper
   constructor (@inject('UserHelper')UserHelper: UserHelper) {
     this.userHelper = UserHelper
   }

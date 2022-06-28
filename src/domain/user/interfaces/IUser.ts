@@ -1,4 +1,4 @@
-interface Iuser {
+export default interface IUser {
  fullName: string
  email: string
  emailConfirmation: string
@@ -13,5 +13,3 @@ interface Iuser {
  address: string
  number: number
 }
-
-export default Iuser
