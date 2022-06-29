@@ -1,9 +1,10 @@
 import User from '../mocks/UserMock'
 import IListService from '../interfaces/IListService'
 import IUser from '../interfaces/IUser'
+import IServiceResponse from '../interfaces/IServiceResponse'
 
 class ListService implements IListService {
-  async listUser () {
+  async listUser (): Promise<IServiceResponse> {
     try {
       const list: Partial<IUser>[] = []
       for (const pessoa of User) {

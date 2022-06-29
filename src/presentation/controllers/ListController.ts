@@ -10,7 +10,7 @@ class ListController implements IListController {
     this.listService = listService
   }
 
-  handle = async (req: Request, res: Response) => {
+  handle = async (req: Request, res: Response): Promise<void> => {
     const listUser = await this.listService.listUser()
     res.status(listUser.code).json(listUser.msg)
   }

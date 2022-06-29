@@ -2,7 +2,7 @@ import User from '../mocks/UserMock'
 import IUserHelper from '../interfaces/IUserHelper'
 
 class UserHelper implements IUserHelper {
-  checkIfEquals (dados: string) {
+  checkIfEquals (dados: string): boolean {
     const cpfUser = Object.values(User)
     const lista = cpfUser.map((item) => item.email)
     lista.forEach((lista) => {
@@ -13,7 +13,7 @@ class UserHelper implements IUserHelper {
     return true
   }
 
-  cpfValidate (cpf: string) {
+  cpfValidate (cpf: string): boolean {
     let cpfArray = Array.from(cpf, Number)
 
     const firstDigit = cpfArray[0]
@@ -28,7 +28,7 @@ class UserHelper implements IUserHelper {
     const confirmationDigits = cpfArray.slice(-2)
     cpfArray = cpfArray.slice(0, -2)
 
-    function calcDigit (start = 1) {
+    function calcDigit (start = 1): number | undefined {
       let result: number | undefined =
     cpfArray.reduce(
       (resultValue: number, currentValue: number, currentIndex: number) => {

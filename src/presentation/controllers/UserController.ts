@@ -1,16 +1,16 @@
 import { Request, Response } from 'express'
 import { inject, injectable } from 'tsyringe'
 import IUserController from '../../domain/user/interfaces/IUserController'
-import UserService from '../../domain/user/services/UserService'
+import IUserService from '../../domain/user/interfaces/IUserService'
 
 @injectable()
 class UserController implements IUserController {
-  userService: UserService
-  constructor (@inject('UserService') userService: UserService) {
+  userService: IUserService
+  constructor (@inject('UserService') userService: IUserService) {
     this.userService = userService
   }
 
-  handle = async (req: Request, res: Response) => {
+  handle = async (req: Request, res: Response): Promise<void> => {
     const criaUser = await this.userService.criaUser(req.body)
     res.status(criaUser.code).json(criaUser.msg)
   }
