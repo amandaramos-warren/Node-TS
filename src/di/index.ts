@@ -11,6 +11,11 @@ import IUserService from '../domain/user/interfaces/IUserService'
 import IListController from '../domain/user/interfaces/IListController'
 import IUserController from '../domain/user/interfaces/IUserController'
 
+container.register<Router>(
+  'Router',
+  { useValue: Router() }
+)
+
 container.registerSingleton<IUserController>(
   'UserController',
   UserController
@@ -19,11 +24,6 @@ container.registerSingleton<IUserController>(
 container.registerSingleton<IListController>(
   'ListController',
   ListController
-)
-
-container.register<Router>(
-  'Router',
-  { useValue: Router() }
 )
 
 container.registerSingleton<IUserService>(

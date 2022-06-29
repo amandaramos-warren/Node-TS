@@ -1,8 +1,5 @@
-import Iuser from './IUser'
+import IServiceResponse from './IServiceResponse'
 
 export default interface IListService {
-  listUser(): Promise<{
-    code: number
-    msg: Partial<Iuser>[] | unknown
-  }>
+  listUser(): Promise<IServiceResponse>
 }
