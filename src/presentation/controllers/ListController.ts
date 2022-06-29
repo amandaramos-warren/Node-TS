@@ -4,7 +4,7 @@ import IListController from '../../domain/user/interfaces/IListController'
 import IListService from '../../domain/user/interfaces/IListService'
 
 @injectable()
-class ListController implements IListController {
+export default class ListController implements IListController {
   listService: IListService
   constructor (@inject('ListService')listService: IListService) {
     this.listService = listService
@@ -15,5 +15,3 @@ class ListController implements IListController {
     res.status(listUser.code).json(listUser.msg)
   }
 }
-
-export default ListController

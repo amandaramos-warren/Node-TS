@@ -1,5 +1,5 @@
-import Iuser from '../types/UserTypes'
+import IUser from '../interfaces/IUser'
 
-const User: Iuser[] = []
+const User: IUser[] = []
 
 export default User

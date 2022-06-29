@@ -4,7 +4,7 @@ import IUserController from '../../domain/user/interfaces/IUserController'
 import IUserService from '../../domain/user/interfaces/IUserService'
 
 @injectable()
-class UserController implements IUserController {
+export default class UserController implements IUserController {
   userService: IUserService
   constructor (@inject('UserService') userService: IUserService) {
     this.userService = userService
@@ -15,5 +15,3 @@ class UserController implements IUserController {
     res.status(criaUser.code).json(criaUser.msg)
   }
 }
-
-export default UserController

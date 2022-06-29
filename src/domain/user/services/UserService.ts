@@ -6,7 +6,7 @@ import Iuser from '../interfaces/IUser'
 import IServiceResponse from '../interfaces/IServiceResponse'
 
 @injectable()
-class UserService implements IUserService {
+export default class UserService implements IUserService {
   userHelper: IUserHelper
   constructor (@inject('UserHelper')userHelper: IUserHelper) {
     this.userHelper = userHelper
@@ -28,5 +28,3 @@ class UserService implements IUserService {
     }
   }
 }
-
-export default UserService

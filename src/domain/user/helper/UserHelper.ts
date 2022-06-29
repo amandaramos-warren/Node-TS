@@ -1,7 +1,7 @@
 import User from '../mocks/UserMock'
 import IUserHelper from '../interfaces/IUserHelper'
 
-class UserHelper implements IUserHelper {
+export default class UserHelper implements IUserHelper {
   checkIfEquals (dados: string): boolean {
     const cpfUser = Object.values(User)
     const lista = cpfUser.map((item) => item.email)
@@ -51,5 +51,3 @@ class UserHelper implements IUserHelper {
     return true
   }
 }
-
-export default UserHelper

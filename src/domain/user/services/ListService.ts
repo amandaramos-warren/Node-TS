@@ -3,7 +3,7 @@ import IListService from '../interfaces/IListService'
 import IUser from '../interfaces/IUser'
 import IServiceResponse from '../interfaces/IServiceResponse'
 
-class ListService implements IListService {
+export default class ListService implements IListService {
   async listUser (): Promise<IServiceResponse> {
     try {
       const list: Partial<IUser>[] = []
@@ -18,5 +18,3 @@ class ListService implements IListService {
     }
   }
 }
-
-export default ListService
