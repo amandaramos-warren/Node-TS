@@ -1,5 +1,5 @@
 import User from '../mocks/UserMock'
-import IUserHelper from '../interfaces/IUserHelper'
+import IUserHelper from '../../../interfaces/IUserHelper'
 
 export default class UserHelper implements IUserHelper {
   checkIfEquals (dados: string): boolean {

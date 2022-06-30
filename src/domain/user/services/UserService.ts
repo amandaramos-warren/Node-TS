@@ -1,9 +1,9 @@
 import { inject, injectable } from 'tsyringe'
 import User from '../mocks/UserMock'
-import IUserHelper from '../interfaces/IUserHelper'
-import IUserService from '../interfaces/IUserService'
-import Iuser from '../interfaces/IUser'
-import IServiceResponse from '../interfaces/IServiceResponse'
+import IUserHelper from '../../../interfaces/IUserHelper'
+import IUserService from '../../../interfaces/IUserService'
+import IUser from '../../../interfaces/IUser'
+import IServiceResponse from '../../../interfaces/IServiceResponse'
 
 @injectable()
 export default class UserService implements IUserService {
@@ -12,7 +12,7 @@ export default class UserService implements IUserService {
     this.userHelper = userHelper
   }
 
-  async criaUser (dados: Iuser): Promise<IServiceResponse> {
+  async criaUser (dados: IUser): Promise<IServiceResponse> {
     try {
       this.userHelper.cpfValidate(dados.cpf)
       this.userHelper.checkIfEquals(dados.email)

@@ -1,7 +1,7 @@
 import User from '../mocks/UserMock'
-import IListService from '../interfaces/IListService'
-import IUser from '../interfaces/IUser'
-import IServiceResponse from '../interfaces/IServiceResponse'
+import IListService from '../../../interfaces/IListService'
+import IUser from '../../../interfaces/IUser'
+import IServiceResponse from '../../../interfaces/IServiceResponse'
 
 export default class ListService implements IListService {
   async listUser (): Promise<IServiceResponse> {
