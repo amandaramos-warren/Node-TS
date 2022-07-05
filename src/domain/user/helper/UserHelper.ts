@@ -1,10 +1,10 @@
-import User from '../mocks/UserMock'
 import IUserHelper from '../../../interfaces/IUserHelper'
+import IUser from '../../../interfaces/IUser'
 
 export default class UserHelper implements IUserHelper {
-  checkIfEquals (dados: string): boolean {
-    const cpfUser = Object.values(User)
-    const lista = cpfUser.map((item) => item.email)
+  checkIfEquals (dados: string, database: IUser[]): boolean {
+    const emailUser = Object.values(database)
+    const lista = emailUser.map((item) => item.email)
     lista.forEach((lista) => {
       if (lista === dados) {
         throw new Error('Email já cadastrado')
