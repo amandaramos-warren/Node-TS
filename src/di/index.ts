@@ -10,6 +10,8 @@ import UserController from '../presentation/controllers/UserController'
 import IUserService from '../interfaces/IUserService'
 import IListController from '../interfaces/IListController'
 import IUserController from '../interfaces/IUserController'
+import IUserRepository from '../interfaces/IUserRepository'
+import UserRepository from '../domain/user/repository/UserRepository'
 
 container.register<Router>(
   'Router',
@@ -39,4 +41,9 @@ container.registerSingleton<IListService>(
 container.registerSingleton<IUserHelper>(
   'UserHelper',
   UserHelper
+)
+
+container.registerSingleton<IUserRepository>(
+  'UserRepository',
+  UserRepository
 )
