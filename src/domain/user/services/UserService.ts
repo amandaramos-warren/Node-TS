@@ -1,5 +1,4 @@
 import { inject, injectable } from 'tsyringe'
-// import User from '../repository/UserRepository'
 import IUserHelper from '../../../interfaces/IUserHelper'
 import IUserService from '../../../interfaces/IUserService'
 import IUser from '../../../interfaces/IUser'

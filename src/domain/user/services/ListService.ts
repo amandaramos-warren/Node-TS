@@ -13,12 +13,13 @@ export default class ListService implements IListService {
 
   async listUser (): Promise<IServiceResponse> {
     try {
-      const list: Partial<IUser>[] = []
-      for (const pessoa of await this.userRepository.readAll()) {
-        const { fullName, email, birthdate } = pessoa
-
-        list.push({ fullName, email, birthdate })
-      }
+      const list: Partial<IUser>[] = this.userRepository.database.map((item) => {
+        const { fullName, email } = item
+        return {
+          fullName,
+          email
+        }
+      })
       return { code: 201, msg: list }
     } catch (error) {
       return { code: 422, msg: error }

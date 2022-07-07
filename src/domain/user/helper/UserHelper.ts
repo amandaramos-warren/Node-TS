@@ -5,11 +5,9 @@ export default class UserHelper implements IUserHelper {
   checkIfEquals (dados: string, database: IUser[]): boolean {
     const emailUser = Object.values(database)
     const lista = emailUser.map((item) => item.email)
-    lista.forEach((lista) => {
-      if (lista === dados) {
-        throw new Error('Email já cadastrado')
-      }
-    })
+    if (lista.includes(dados)) {
+      throw new Error('Email já cadastrado')
+    }
     return true
   }
 
