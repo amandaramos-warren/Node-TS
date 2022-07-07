@@ -2,16 +2,15 @@ import IUserHelper from '../../../interfaces/IUserHelper'
 import IUser from '../../../interfaces/IUser'
 
 export default class UserHelper implements IUserHelper {
-  checkIfEquals (dados: string, database: IUser[]): boolean {
+  checkIfEquals (dados: string, database: IUser[]): void {
     const emailUser = Object.values(database)
     const lista = emailUser.map((item) => item.email)
     if (lista.includes(dados)) {
       throw new Error('Email já cadastrado')
     }
-    return true
   }
 
-  cpfValidate (cpf: string): boolean {
+  cpfValidate (cpf: string): void {
     let cpfArray = Array.from(cpf, Number)
 
     const firstDigit = cpfArray[0]
@@ -46,6 +45,5 @@ export default class UserHelper implements IUserHelper {
     if (firstDigitAfterDash !== confirmationDigits[0]) { throw new Error('CPF inválido') }
     cpfArray.push(firstDigitAfterDash)
     if (calcDigit(0) !== confirmationDigits[1]) throw new Error('CPF inválido')
-    return true
   }
 }
