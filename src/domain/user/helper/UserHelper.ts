@@ -4,8 +4,8 @@ import IUser from '../../../interfaces/IUser'
 export default class UserHelper implements IUserHelper {
   checkIfEquals (dados: string, database: IUser[]): void {
     const emailUser = Object.values(database)
-    const lista = emailUser.map((item) => item.email)
-    if (lista.includes(dados)) {
+    const emailAlreadyExists = emailUser.includes({ email }: type => item.email)
+    if (emailAlreadyExists ) {
       throw new Error('Email já cadastrado')
     }
   }
