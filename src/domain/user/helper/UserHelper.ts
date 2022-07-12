@@ -2,11 +2,11 @@ import IUserHelper from '../../../interfaces/IUserHelper'
 import IUser from '../../../interfaces/IUser'
 
 export default class UserHelper implements IUserHelper {
-  checkIfEquals (dados: string, database: IUser[]): void {
+  checkIfEquals (email: string, database: IUser[]): void {
     const emailUser = Object.values(database)
-    const lista = emailUser.map((item) => item.email)
-    if (lista.includes(dados)) {
-      throw new Error('Email já cadastrado')
+    const emailAlreadyExists = emailUser.some(({ email }) => email)
+    if (emailAlreadyExists) {
+      throw new Error(`Email ${email} já existe`)
     }
   }
 
