@@ -21,12 +21,10 @@ export default class UserCreateService implements IUserCreateService {
       this.userHelper.cpfValidate(body.cpf)
       this.userHelper.checkIfEquals(body.email, this.userRepository.database)
       this.userRepository.create(body)
-      return { code: 201, msg: 'Usuário Criado' }
-    } catch (error) {
-      let message: string | undefined
-      if (error instanceof Error) message = error.message
-
-      return { code: 422, msg: message }
+      return { code: 201, message: 'Usuário Criado' }
+    } catch (error: unknown) {
+      const { message } = error as Error
+      return { code: 422, message }
     }
   }
 }
