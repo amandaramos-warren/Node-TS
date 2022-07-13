@@ -1,12 +1,12 @@
 import { inject, injectable } from 'tsyringe'
 import IUserHelper from '../../../interfaces/IUserHelper'
-import IUserService from '../../../interfaces/IUserService'
+import IUserCreateService from '../../../interfaces/IUserCreateService'
 import IUser from '../../../interfaces/IUser'
-import IServiceResponse from '../../../interfaces/IServiceResponse'
+import ICreateUserResponse from '../../../interfaces/ICreateUserResponse'
 import IUserRepository from '../../../interfaces/IUserRepository'
 
 @injectable()
-export default class UserService implements IUserService {
+export default class UserCreateService implements IUserCreateService {
   userRepository: IUserRepository
   userHelper: IUserHelper
   constructor (
@@ -16,7 +16,7 @@ export default class UserService implements IUserService {
     this.userHelper = userHelper
   }
 
-  async createUser (body: IUser): Promise<IServiceResponse> {
+  async createUser (body: IUser): Promise<ICreateUserResponse> {
     try {
       this.userHelper.cpfValidate(body.cpf)
       this.userHelper.checkIfEquals(body.email, this.userRepository.database)

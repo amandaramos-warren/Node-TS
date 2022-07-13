@@ -1,15 +1,15 @@
 import { Router } from 'express'
 import { container } from 'tsyringe'
 import UserHelper from '../domain/user/helper/UserHelper'
-import ListService from '../domain/user/services/ListService'
-import UserService from '../domain/user/services/UserService'
-import IListService from '../interfaces/IListService'
+import UserListService from '../domain/user/services/UserListService'
+import UserCreateService from '../domain/user/services/UserCreateService'
+import IUserListService from '../interfaces/IUserListService'
 import IUserHelper from '../interfaces/IUserHelper'
-import ListController from '../presentation/controllers/ListController'
-import UserController from '../presentation/controllers/UserController'
-import IUserService from '../interfaces/IUserService'
-import IListController from '../interfaces/IListController'
-import IUserController from '../interfaces/IUserController'
+import UserListController from '../presentation/controllers/UserListController'
+import UserCreateController from '../presentation/controllers/UserCreateController'
+import IUserCreateService from '../interfaces/IUserCreateService'
+import IUserListController from '../interfaces/IUserListController'
+import IUserCreateController from '../interfaces/IUserCreateController'
 import IUserRepository from '../interfaces/IUserRepository'
 import UserRepository from '../domain/user/repository/UserRepository'
 
@@ -18,24 +18,24 @@ container.register<Router>(
   { useValue: Router() }
 )
 
-container.registerSingleton<IUserController>(
-  'UserController',
-  UserController
+container.registerSingleton<IUserCreateController>(
+  'UserCreateController',
+  UserCreateController
 )
 
-container.registerSingleton<IListController>(
-  'ListController',
-  ListController
+container.registerSingleton<IUserListController>(
+  'UserListController',
+  UserListController
 )
 
-container.registerSingleton<IUserService>(
-  'UserService',
-  UserService
+container.registerSingleton<IUserCreateService>(
+  'UserCreateService',
+  UserCreateService
 )
 
-container.registerSingleton<IListService>(
-  'ListService',
-  ListService
+container.registerSingleton<IUserListService>(
+  'UserListService',
+  UserListService
 )
 
 container.registerSingleton<IUserHelper>(

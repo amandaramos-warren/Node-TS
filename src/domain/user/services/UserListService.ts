@@ -1,11 +1,11 @@
-import IListService from '../../../interfaces/IListService'
-import IServiceResponse from '../../../interfaces/IServiceResponse'
+import IUserListService from '../../../interfaces/IUserListService'
+import IServiceResponse from '../../../interfaces/ICreateUserResponse'
 import { inject, injectable } from 'tsyringe'
 import IUserRepository from '../../../interfaces/IUserRepository'
 import IUserListResponse from '../../../interfaces/IUserListResponse'
 
 @injectable()
-export default class ListService implements IListService {
+export default class UserListService implements IUserListService {
   userRepository: IUserRepository
   constructor (@inject('UserRepository')userRepository: IUserRepository) {
     this.userRepository = userRepository

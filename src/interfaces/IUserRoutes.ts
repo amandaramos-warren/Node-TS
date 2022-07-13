@@ -1,10 +1,10 @@
 import { Router } from 'express'
-import IListController from './IListController'
-import IUserController from './IUserController'
+import IListController from './IUserListController'
+import IUserController from './IUserCreateController'
 
 export default interface IUserRoutes{
-  userController: IUserController
-  listController: IListController
+  userCreateController: IUserController
+  userListController: IListController
   router: Router
   routes(): Promise<void>
 }
