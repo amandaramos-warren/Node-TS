@@ -1,8 +1,8 @@
 import IListService from '../../../interfaces/IListService'
-import IUser from '../../../interfaces/IUser'
 import IServiceResponse from '../../../interfaces/IServiceResponse'
 import { inject, injectable } from 'tsyringe'
 import IUserRepository from '../../../interfaces/IUserRepository'
+import IUserListResponse from '../../../interfaces/IUserListResponse'
 
 @injectable()
 export default class ListService implements IListService {
@@ -13,14 +13,13 @@ export default class ListService implements IListService {
 
   async listUser (): Promise<IServiceResponse> {
     try {
-      const list: Partial<IUser>[] = this.userRepository.database.map((item) => {
-        const { fullName, email } = item
+      const result: IUserListResponse[] = this.userRepository.database.map(({ fullName, email }) => {
         return {
           fullName,
           email
         }
       })
-      return { code: 201, msg: list }
+      return { code: 201, msg: result }
     } catch (error) {
       return { code: 422, msg: error }
     }
