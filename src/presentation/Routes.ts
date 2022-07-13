@@ -19,7 +19,7 @@ export default class UserRoutes implements IUserRoutes {
     this.routes()
   }
 
-  async routes (): Promise<void> {
+  routes (): void {
     this.router.post('/customer', userMiddleware, this.userCreateController.handle)
     this.router.get('/get', this.userListController.handle)
   }

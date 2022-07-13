@@ -6,5 +6,5 @@ export default interface IUserRoutes{
   userCreateController: IUserController
   userListController: IListController
   router: Router
-  routes(): Promise<void>
+  routes(): void
 }
