@@ -19,9 +19,9 @@ export default class UserListService implements IUserListService {
           email
         }
       })
-      return { code: 201, msg: result }
+      return { code: 201, message: result }
     } catch (error) {
-      return { code: 422, msg: error }
+      return { code: 422, message: error }
     }
   }
 }

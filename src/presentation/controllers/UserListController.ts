@@ -12,6 +12,6 @@ export default class UserListController implements IUserListController {
 
   handle = async (req: Request, res: Response): Promise<void> => {
     const listUser = await this.userListService.listUser()
-    res.status(listUser.code).json(listUser.msg)
+    res.status(listUser.code).json(listUser.message)
   }
 }
