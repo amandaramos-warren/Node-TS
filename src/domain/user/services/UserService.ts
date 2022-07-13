@@ -16,11 +16,11 @@ export default class UserService implements IUserService {
     this.userHelper = userHelper
   }
 
-  async criaUser (dados: IUser): Promise<IServiceResponse> {
+  async createUser (body: IUser): Promise<IServiceResponse> {
     try {
-      this.userHelper.cpfValidate(dados.cpf)
-      this.userHelper.checkIfEquals(dados.email, this.userRepository.database)
-      this.userRepository.create(dados)
+      this.userHelper.cpfValidate(body.cpf)
+      this.userHelper.checkIfEquals(body.email, this.userRepository.database)
+      this.userRepository.create(body)
       return { code: 201, msg: 'Usuário Criado' }
     } catch (error) {
       let message: string | undefined
