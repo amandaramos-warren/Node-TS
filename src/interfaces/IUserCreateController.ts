@@ -3,5 +3,5 @@ import { Request, Response } from 'express'
 
 export default interface IUserCreateController{
   userCreateService: IUserCreateService
-  handle: (req: Request, res: Response) => Promise<void>
+  handle: (req: Request, res: Response) => void
 }

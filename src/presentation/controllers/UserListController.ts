@@ -10,8 +10,8 @@ export default class UserListController implements IUserListController {
     this.userListService = userListService
   }
 
-  handle = async (req: Request, res: Response): Promise<void> => {
-    const listUser = await this.userListService.listUser()
+  handle = (req: Request, res: Response): void => {
+    const listUser = this.userListService.listUser()
     res.status(listUser.code).json(listUser.message)
   }
 }

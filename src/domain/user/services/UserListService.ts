@@ -11,7 +11,7 @@ export default class UserListService implements IUserListService {
     this.userRepository = userRepository
   }
 
-  async listUser (): Promise<IServiceResponse> {
+  listUser (): IServiceResponse {
     try {
       const result: IUserListResponse[] = this.userRepository.database.map(({ fullName, email }) => {
         return {

@@ -4,5 +4,5 @@ import IServiceResponse from './ICreateUserResponse'
 
 export default interface IUserCreateService {
   userHelper: IUserHelper
-  createUser(body: Iuser): Promise<IServiceResponse>
+  createUser(body: Iuser): IServiceResponse
 }

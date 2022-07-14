@@ -16,7 +16,7 @@ export default class UserCreateService implements IUserCreateService {
     this.userHelper = userHelper
   }
 
-  async createUser (body: IUser): Promise<ICreateUserResponse> {
+  createUser (body: IUser): ICreateUserResponse {
     try {
       this.userHelper.cpfValidate(body.cpf)
       this.userHelper.checkIfEquals(body.email, this.userRepository.database)

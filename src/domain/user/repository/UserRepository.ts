@@ -7,11 +7,11 @@ export default class UserRepository implements IUserRepository {
     this.database = []
   }
 
-  async create (entity: IUser): Promise <void> {
+  create (entity: IUser): void {
     this.database.push(entity)
   }
 
-  async readAll () {
+  readAll () {
     return this.database
   }
 }
