@@ -1,5 +1,5 @@
-import IUser from '../../../interfaces/IUser'
+import IUser from '../../../interfaces/IUser';
 
-const User: IUser[] = []
+const User: IUser[] = [];
 
-export default User
+export default User;

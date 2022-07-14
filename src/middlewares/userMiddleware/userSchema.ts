@@ -1,4 +1,4 @@
-import Joi from 'joi'
+import Joi from 'joi';
 
 const userSchema = Joi.object()
   .keys({
@@ -14,10 +14,10 @@ const userSchema = Joi.object()
     country: Joi.string().required(),
     postalCode: Joi.string().length(8).required(),
     address: Joi.string().required(),
-    number: Joi.number().required()
+    number: Joi.number().required(),
   })
   .options({
-    abortEarly: false
-  })
+    abortEarly: false,
+  });
 
-export default userSchema
+export default userSchema;

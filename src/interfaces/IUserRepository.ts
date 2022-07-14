@@ -1,7 +1,7 @@
-import IUser from './IUser'
+import IUser from './IUser';
 
 export default interface IUserRepository {
-  database: IUser[]
-  create(entity: IUser): void
-  readAll(): IUser[]
+  database: IUser[];
+  create(entity: IUser): void;
+  readAll(): IUser[];
 }

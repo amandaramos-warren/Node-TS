@@ -1,49 +1,40 @@
-import { Router } from 'express'
-import { container } from 'tsyringe'
-import UserHelper from '../domain/user/helper/UserHelper'
-import UserListService from '../domain/user/services/UserListService'
-import UserCreateService from '../domain/user/services/UserCreateService'
-import IUserListService from '../interfaces/IUserListService'
-import IUserHelper from '../interfaces/IUserHelper'
-import UserListController from '../presentation/controllers/UserListController'
-import UserCreateController from '../presentation/controllers/UserCreateController'
-import IUserCreateService from '../interfaces/IUserCreateService'
-import IUserListController from '../interfaces/IUserListController'
-import IUserCreateController from '../interfaces/IUserCreateController'
-import IUserRepository from '../interfaces/IUserRepository'
-import UserRepository from '../domain/user/repository/UserRepository'
+import { Router } from 'express';
+import { container } from 'tsyringe';
+import UserHelper from '../domain/user/helper/UserHelper';
+import UserListService from '../domain/user/services/UserListService';
+import UserCreateService from '../domain/user/services/UserCreateService';
+import IUserListService from '../interfaces/IUserListService';
+import IUserHelper from '../interfaces/IUserHelper';
+import UserListController from '../presentation/controllers/UserListController';
+import UserCreateController from '../presentation/controllers/UserCreateController';
+import IUserCreateService from '../interfaces/IUserCreateService';
+import IUserListController from '../interfaces/IUserListController';
+import IUserCreateController from '../interfaces/IUserCreateController';
+import IUserRepository from '../interfaces/IUserRepository';
+import UserRepository from '../domain/user/repository/UserRepository';
 
-container.register<Router>(
-  'Router',
-  { useValue: Router() }
-)
+container.register<Router>('Router', { useValue: Router() });
 
 container.registerSingleton<IUserCreateController>(
   'UserCreateController',
-  UserCreateController
-)
+  UserCreateController,
+);
 
 container.registerSingleton<IUserListController>(
   'UserListController',
-  UserListController
-)
+  UserListController,
+);
 
 container.registerSingleton<IUserCreateService>(
   'UserCreateService',
-  UserCreateService
-)
+  UserCreateService,
+);
 
 container.registerSingleton<IUserListService>(
   'UserListService',
-  UserListService
-)
+  UserListService,
+);
 
-container.registerSingleton<IUserHelper>(
-  'UserHelper',
-  UserHelper
-)
+container.registerSingleton<IUserHelper>('UserHelper', UserHelper);
 
-container.registerSingleton<IUserRepository>(
-  'UserRepository',
-  UserRepository
-)
+container.registerSingleton<IUserRepository>('UserRepository', UserRepository);

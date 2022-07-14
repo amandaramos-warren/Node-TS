@@ -1,4 +1,4 @@
 export default interface IServiceResponse {
-  code: number
-  message: unknown | string
+  code: number;
+  message: unknown | string;
 }

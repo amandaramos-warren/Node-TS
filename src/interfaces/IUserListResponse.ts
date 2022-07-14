@@ -1,4 +1,4 @@
 export default interface IUserListResponse {
-    fullName: string;
-    email: string;
+  fullName: string;
+  email: string;
 }

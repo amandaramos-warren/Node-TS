@@ -1,5 +1,5 @@
-import IServiceResponse from './ICreateUserResponse'
+import IServiceResponse from './ICreateUserResponse';
 
 export default interface IUserListService {
-  listUser(): IServiceResponse
+  listUser(): IServiceResponse;
 }
