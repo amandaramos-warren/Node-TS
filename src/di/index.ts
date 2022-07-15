@@ -12,6 +12,8 @@ import IUserListController from '../interfaces/IUserListController';
 import IUserCreateController from '../interfaces/IUserCreateController';
 import IUserRepository from '../interfaces/IUserRepository';
 import UserRepository from '../domain/user/repository/UserRepository';
+import IUserValidation from '../interfaces/IUserValidation';
+import UserValidation from '../domain/user/helper/UserValidation';
 
 container.register<Router>('Router', { useValue: Router() });
 
@@ -34,6 +36,8 @@ container.registerSingleton<IUserListService>(
   'UserListService',
   UserListService,
 );
+
+container.registerSingleton<IUserValidation>('UserValidation', UserValidation);
 
 container.registerSingleton<IUserHelper>('UserHelper', UserHelper);
 

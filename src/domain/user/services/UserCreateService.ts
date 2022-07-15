@@ -1,26 +1,29 @@
 import { inject, injectable } from 'tsyringe';
-import IUserHelper from '../../../interfaces/IUserHelper';
 import IUserCreateService from '../../../interfaces/IUserCreateService';
 import IUser from '../../../interfaces/IUser';
 import ICreateUserResponse from '../../../interfaces/ICreateUserResponse';
 import IUserRepository from '../../../interfaces/IUserRepository';
+import IUserValidation from '../../../interfaces/IUserValidation';
 
 @injectable()
 export default class UserCreateService implements IUserCreateService {
+  userValidation: IUserValidation;
   userRepository: IUserRepository;
-  userHelper: IUserHelper;
   constructor(
+    @inject('UserValidation') userValidation: IUserValidation,
     @inject('UserRepository') userRepository: IUserRepository,
-    @inject('UserHelper') userHelper: IUserHelper,
   ) {
+    this.userValidation = userValidation;
     this.userRepository = userRepository;
-    this.userHelper = userHelper;
   }
 
   createUser(body: IUser): ICreateUserResponse {
     try {
-      this.userHelper.cpfValidate(body.cpf);
-      this.userHelper.checkIfEquals(body.email, this.userRepository.database);
+      this.userValidation.validate(
+        body.cpf,
+        body.email,
+        this.userRepository.database,
+      );
       this.userRepository.create(body);
       return { code: 201, message: 'Usuário Criado' };
     } catch (error: unknown) {
