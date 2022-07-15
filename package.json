@@ -6,7 +6,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "ts-node-dev --respawn ./src/index.ts",
-    "lint": "eslint -c .eslintrc --ext .ts src"
+    "lint": "eslint -c .eslintrc --ext .ts src",
+    "format:check": "prettier --check src",
+    "format:write": "prettier --write src"
   },
   "author": "Amanda",
   "license": "ISC",
