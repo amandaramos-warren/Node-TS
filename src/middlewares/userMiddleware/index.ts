@@ -4,7 +4,7 @@ import userSchema from './userSchema';
 export default async function (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) {
   try {
     const validateBody = await userSchema.validateAsync(req.body);

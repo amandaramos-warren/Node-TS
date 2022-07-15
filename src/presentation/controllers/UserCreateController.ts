@@ -7,7 +7,7 @@ import IUserCreateService from '../../interfaces/IUserCreateService';
 export default class UserCreateController implements IUserCreateController {
   userCreateService: IUserCreateService;
   constructor(
-    @inject('UserCreateService') userCreateService: IUserCreateService,
+    @inject('UserCreateService') userCreateService: IUserCreateService
   ) {
     this.userCreateService = userCreateService;
   }

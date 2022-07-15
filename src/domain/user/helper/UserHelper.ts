@@ -33,7 +33,7 @@ export default class UserHelper implements IUserHelper {
               resultValue + currentValue * (currentIndex + start);
             return totalSum;
           },
-          0,
+          0
         ) % 11;
       if (result >= 10) {
         const resultString = Array.from(result.toString(), Number);

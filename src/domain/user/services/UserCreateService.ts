@@ -11,7 +11,7 @@ export default class UserCreateService implements IUserCreateService {
   userRepository: IUserRepository;
   constructor(
     @inject('UserValidation') userValidation: IUserValidation,
-    @inject('UserRepository') userRepository: IUserRepository,
+    @inject('UserRepository') userRepository: IUserRepository
   ) {
     this.userValidation = userValidation;
     this.userRepository = userRepository;
@@ -22,7 +22,7 @@ export default class UserCreateService implements IUserCreateService {
       this.userValidation.validate(
         body.cpf,
         body.email,
-        this.userRepository.database,
+        this.userRepository.database
       );
       this.userRepository.create(body);
       return { code: 201, message: 'Usuário Criado' };

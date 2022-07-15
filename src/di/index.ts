@@ -19,22 +19,22 @@ container.register<Router>('Router', { useValue: Router() });
 
 container.registerSingleton<IUserCreateController>(
   'UserCreateController',
-  UserCreateController,
+  UserCreateController
 );
 
 container.registerSingleton<IUserListController>(
   'UserListController',
-  UserListController,
+  UserListController
 );
 
 container.registerSingleton<IUserCreateService>(
   'UserCreateService',
-  UserCreateService,
+  UserCreateService
 );
 
 container.registerSingleton<IUserListService>(
   'UserListService',
-  UserListService,
+  UserListService
 );
 
 container.registerSingleton<IUserValidation>('UserValidation', UserValidation);

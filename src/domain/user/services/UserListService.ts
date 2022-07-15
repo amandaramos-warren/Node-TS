@@ -19,7 +19,7 @@ export default class UserListService implements IUserListService {
             fullName,
             email,
           };
-        },
+        }
       );
       return { code: 201, message: result };
     } catch (error) {

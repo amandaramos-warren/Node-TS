@@ -13,7 +13,7 @@ export default class UserRoutes implements IUserRoutes {
   constructor(
     @inject('UserCreateController') userCreateController: IUserCreateController,
     @inject('UserListController') userListController: IUserListController,
-    @inject('Router') Router: Router,
+    @inject('Router') Router: Router
   ) {
     this.userCreateController = userCreateController;
     this.userListController = userListController;
@@ -25,7 +25,7 @@ export default class UserRoutes implements IUserRoutes {
     this.router.post(
       '/customer',
       userMiddleware,
-      this.userCreateController.handle,
+      this.userCreateController.handle
     );
     this.router.get('/get', this.userListController.handle);
   }
