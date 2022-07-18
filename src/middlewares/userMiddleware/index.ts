@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import StatusError from '../../util/StatusError';
 import userSchema from './userSchema';
 
 export default async function (
@@ -11,7 +12,6 @@ export default async function (
     req.body = validateBody;
     next();
   } catch (error) {
-    res.json(error);
-    next(error);
+    next(new StatusError(422, `${error}`));
   }
 }

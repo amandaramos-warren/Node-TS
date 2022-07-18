@@ -1,12 +1,13 @@
 import IUserHelper from '../../../interfaces/domain/IUserHelper';
 import IUser from '../../../interfaces/domain/IUser';
+import StatusError from '../../../util/StatusError';
 
 export default class UserHelper implements IUserHelper {
   checkIfEquals(email: string, database: IUser[]): void {
     const emailUser = Object.values(database);
     const emailAlreadyExists = emailUser.some(({ email }) => email);
     if (emailAlreadyExists) {
-      throw new Error(`Email ${email} já existe`);
+      throw new StatusError(422, `Email ${email} já existe`);
     }
   }
 
@@ -18,7 +19,7 @@ export default class UserHelper implements IUserHelper {
       if (cpfArray[i] !== firstDigit) {
         break;
       } else if (i === cpfArray.length - 1) {
-        throw new Error('CPF inválido');
+        throw new StatusError(422, 'CPF inválido');
       }
     }
 
@@ -44,9 +45,10 @@ export default class UserHelper implements IUserHelper {
 
     const firstDigitAfterDash = calcDigit();
     if (firstDigitAfterDash !== confirmationDigits[0]) {
-      throw new Error('CPF inválido');
+      throw new StatusError(422, 'CPF inválido');
     }
     cpfArray.push(firstDigitAfterDash);
-    if (calcDigit(0) !== confirmationDigits[1]) throw new Error('CPF inválido');
+    if (calcDigit(0) !== confirmationDigits[1])
+      throw new StatusError(422, 'CPF inválido');
   }
 }

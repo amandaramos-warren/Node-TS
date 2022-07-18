@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'tsyringe';
 import IUserCreateController from '../../interfaces/presentation/IUserCreateController';
 import IUserCreateService from '../../interfaces/domain/IUserCreateService';
@@ -12,8 +12,12 @@ export default class UserCreateController implements IUserCreateController {
     this.userCreateService = userCreateService;
   }
 
-  handle = (req: Request, res: Response): void => {
-    const createUser = this.userCreateService.createUser(req.body);
-    res.status(createUser.code).json(createUser.message);
+  handle = (req: Request, res: Response, next: NextFunction): void => {
+    try {
+      const createUser = this.userCreateService.createUser(req.body);
+      res.status(createUser.code).json(createUser.message);
+    } catch (err) {
+      next(err);
+    }
   };
 }
