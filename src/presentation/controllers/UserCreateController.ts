@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { inject, injectable } from 'tsyringe';
 import IUserCreateController from '../../interfaces/presentation/IUserCreateController';
-import IUserCreateService from '../../interfaces/IUserCreateService';
+import IUserCreateService from '../../interfaces/domain/IUserCreateService';
 
 @injectable()
 export default class UserCreateController implements IUserCreateController {

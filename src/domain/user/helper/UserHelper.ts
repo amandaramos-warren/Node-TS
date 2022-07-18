@@ -1,5 +1,5 @@
-import IUserHelper from '../../../interfaces/IUserHelper';
-import IUser from '../../../interfaces/IUser';
+import IUserHelper from '../../../interfaces/domain/IUserHelper';
+import IUser from '../../../interfaces/domain/IUser';
 
 export default class UserHelper implements IUserHelper {
   checkIfEquals(email: string, database: IUser[]): void {

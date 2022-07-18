@@ -1,9 +1,9 @@
 import { inject, injectable } from 'tsyringe';
-import IUserCreateService from '../../../interfaces/IUserCreateService';
-import IUser from '../../../interfaces/IUser';
-import ICreateUserResponse from '../../../interfaces/ICreateUserResponse';
-import IUserRepository from '../../../interfaces/IUserRepository';
-import IUserValidation from '../../../interfaces/IUserValidation';
+import IUserCreateService from '../../../interfaces/domain/IUserCreateService';
+import IUser from '../../../interfaces/domain/IUser';
+import ICreateUserResponse from '../../../interfaces/domain/ICreateUserResponse';
+import IUserRepository from '../../../interfaces/domain/IUserRepository';
+import IUserValidation from '../../../interfaces/domain/IUserValidation';
 
 @injectable()
 export default class UserCreateService implements IUserCreateService {

@@ -1,8 +1,8 @@
-import IUserListService from '../../../interfaces/IUserListService';
-import IServiceResponse from '../../../interfaces/ICreateUserResponse';
+import IUserListService from '../../../interfaces/domain/IUserListService';
+import IServiceResponse from '../../../interfaces/domain/ICreateUserResponse';
 import { inject, injectable } from 'tsyringe';
-import IUserRepository from '../../../interfaces/IUserRepository';
-import IUserListResponse from '../../../interfaces/IUserListResponse';
+import IUserRepository from '../../../interfaces/domain/IUserRepository';
+import IUserListResponse from '../../../interfaces/domain/IUserListResponse';
 
 @injectable()
 export default class UserListService implements IUserListService {
