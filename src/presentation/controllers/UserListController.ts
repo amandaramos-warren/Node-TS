@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { inject, injectable } from 'tsyringe';
-import IUserListController from '../../interfaces/IUserListController';
+import IUserListController from '../../interfaces/presentation/IUserListController';
 import IUserListService from '../../interfaces/IUserListService';
 
 @injectable()

@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { inject, injectable } from 'tsyringe';
-import IUserListController from '../interfaces/IUserListController';
-import IUserCreateController from '../interfaces/IUserCreateController';
-import IUserRoutes from '../interfaces/IUserRoutes';
+import IUserListController from '../interfaces/presentation/IUserListController';
+import IUserCreateController from '../interfaces/presentation/IUserCreateController';
+import IUserRoutes from '../interfaces/presentation/IUserRoutes';
 import userMiddleware from '../middlewares/userMiddleware';
 
 @injectable()
