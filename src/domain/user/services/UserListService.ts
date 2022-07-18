@@ -12,18 +12,14 @@ export default class UserListService implements IUserListService {
   }
 
   listUser(): IServiceResponse {
-    try {
-      const result: IUserListResponse[] = this.userRepository.database.map(
-        ({ fullName, email }) => {
-          return {
-            fullName,
-            email,
-          };
-        }
-      );
-      return { code: 201, message: result };
-    } catch (error) {
-      return { code: 500, message: error };
-    }
+    const result: IUserListResponse[] = this.userRepository.database.map(
+      ({ fullName, email }) => {
+        return {
+          fullName,
+          email,
+        };
+      }
+    );
+    return { code: 201, message: result };
   }
 }

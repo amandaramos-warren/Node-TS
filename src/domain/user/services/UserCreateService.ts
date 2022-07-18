@@ -18,17 +18,12 @@ export default class UserCreateService implements IUserCreateService {
   }
 
   createUser(body: IUser): ICreateUserResponse {
-    try {
-      this.userValidation.validate(
-        body.cpf,
-        body.email,
-        this.userRepository.database
-      );
-      this.userRepository.create(body);
-      return { code: 201, message: 'Usuário Criado' };
-    } catch (error: unknown) {
-      const { message } = error as Error;
-      return { code: 422, message };
-    }
+    this.userValidation.validate(
+      body.cpf,
+      body.email,
+      this.userRepository.database
+    );
+    this.userRepository.create(body);
+    return { code: 201, message: 'Usuário Criado' };
   }
 }
