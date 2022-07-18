@@ -16,8 +16,8 @@ export default class UserCreateController implements IUserCreateController {
     try {
       const createUser = this.userCreateService.createUser(req.body);
       res.status(createUser.code).json(createUser.message);
-    } catch (err) {
-      next(err);
+    } catch (error) {
+      next(error);
     }
   };
 }
