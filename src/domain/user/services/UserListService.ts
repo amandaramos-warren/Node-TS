@@ -1,5 +1,4 @@
 import IUserListService from '../../../interfaces/domain/IUserListService';
-import IServiceResponse from '../../../interfaces/domain/ICreateUserResponse';
 import { inject, injectable } from 'tsyringe';
 import IUserRepository from '../../../interfaces/domain/IUserRepository';
 import IUserListResponse from '../../../interfaces/domain/IUserListResponse';
@@ -11,7 +10,7 @@ export default class UserListService implements IUserListService {
     this.userRepository = userRepository;
   }
 
-  listUser(): IServiceResponse {
+  listUser(): IUserListResponse[] {
     const result: IUserListResponse[] = this.userRepository.database.map(
       ({ fullName, email }) => {
         return {
@@ -20,6 +19,6 @@ export default class UserListService implements IUserListService {
         };
       }
     );
-    return { code: 201, message: result };
+    return result;
   }
 }

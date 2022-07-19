@@ -13,7 +13,7 @@ export default class UserListController implements IUserListController {
   handle = (req: Request, res: Response, next: NextFunction): void => {
     try {
       const listUser = this.userListService.listUser();
-      res.status(listUser.code).json(listUser.message);
+      res.status(201).json(listUser);
     } catch (error) {
       next(error);
     }
