@@ -3,11 +3,15 @@ import IUser from '../../../interfaces/domain/IUser';
 import StatusError from '../../../util/StatusError';
 
 export default class UserHelper implements IUserHelper {
-  checkIfEquals(email2: string, database: IUser[]): void {
+  checkIfEquals(
+    field: string,
+    fieldName: keyof IUser,
+    database: IUser[]
+  ): void {
     const emailUser = Object.values(database);
     emailUser.map((value: IUser) => {
-      if (value.email === email2) {
-        throw new StatusError(422, `Email ${email2} já existe`);
+      if (value[fieldName] === field) {
+        throw new StatusError(422, `${fieldName} ${field} já existe`);
       }
     });
   }
