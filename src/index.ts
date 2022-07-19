@@ -4,9 +4,11 @@ import express from 'express';
 import UserRoutes from './presentation/Routes';
 import { container } from 'tsyringe';
 import errorMiddleware from './middlewares/errorMiddleware';
+import helmet from 'helmet';
 
 const app = express();
 
+app.use(helmet());
 app.use(express.json());
 app.use(container.resolve(UserRoutes).router);
 app.use(errorMiddleware);
