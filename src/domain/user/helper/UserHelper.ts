@@ -3,12 +3,13 @@ import IUser from '../../../interfaces/domain/IUser';
 import StatusError from '../../../util/StatusError';
 
 export default class UserHelper implements IUserHelper {
-  checkIfEquals(email: string, database: IUser[]): void {
+  checkIfEquals(email2: string, database: IUser[]): void {
     const emailUser = Object.values(database);
-    const emailAlreadyExists = emailUser.some(({ email }) => email);
-    if (emailAlreadyExists) {
-      throw new StatusError(422, `Email ${email} já existe`);
-    }
+    emailUser.map((value: IUser) => {
+      if (value.email === email2) {
+        throw new StatusError(422, `Email ${email2} já existe`);
+      }
+    });
   }
 
   cpfValidate(cpf: string): void {
