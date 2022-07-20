@@ -1,19 +1,18 @@
 import { Router } from 'express';
 import { inject, injectable } from 'tsyringe';
-import IUserListController from '../interfaces/presentation/IUserListController';
-import IUserCreateController from '../interfaces/presentation/IUserCreateController';
+import IController from '../interfaces/presentation/IController';
 import IUserRoutes from '../interfaces/presentation/IUserRoutes';
 import { MiddlewareType } from '../interfaces/presentation/MiddlewareType';
 
 @injectable()
 export default class UserRoutes implements IUserRoutes {
-  userCreateController: IUserCreateController;
-  userListController: IUserListController;
+  userCreateController: IController;
+  userListController: IController;
   router: Router;
   userMiddleware: MiddlewareType;
   constructor(
-    @inject('UserCreateController') userCreateController: IUserCreateController,
-    @inject('UserListController') userListController: IUserListController,
+    @inject('UserCreateController') userCreateController: IController,
+    @inject('UserListController') userListController: IController,
     @inject('userMiddleware') userMiddleware: MiddlewareType,
     @inject('Router') Router: Router
   ) {

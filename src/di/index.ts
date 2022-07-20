@@ -8,8 +8,7 @@ import IUserHelper from '../interfaces/domain/IUserHelper';
 import UserListController from '../presentation/controllers/UserListController';
 import UserCreateController from '../presentation/controllers/UserCreateController';
 import IUserCreateService from '../interfaces/domain/IUserCreateService';
-import IUserListController from '../interfaces/presentation/IUserListController';
-import IUserCreateController from '../interfaces/presentation/IUserCreateController';
+import IController from '../interfaces/presentation/IController';
 import IUserRepository from '../interfaces/domain/IUserRepository';
 import UserRepository from '../domain/user/repository/UserRepository';
 import IUserValidation from '../interfaces/domain/IUserValidation';
@@ -19,12 +18,12 @@ import userMiddleware from '../middlewares/userMiddleware';
 
 container.register<Router>('Router', { useValue: Router() });
 
-container.registerSingleton<IUserCreateController>(
+container.registerSingleton<IController>(
   'UserCreateController',
   UserCreateController
 );
 
-container.registerSingleton<IUserListController>(
+container.registerSingleton<IController>(
   'UserListController',
   UserListController
 );
