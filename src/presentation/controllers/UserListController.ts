@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'tsyringe';
-import IUserListController from '../../interfaces/presentation/IUserListController';
+import IController from '../../interfaces/presentation/IController';
 import IUserListService from '../../interfaces/domain/IUserListService';
 
 @injectable()
-export default class UserListController implements IUserListController {
+export default class UserListController implements IController {
   userListService: IUserListService;
   constructor(@inject('UserListService') userListService: IUserListService) {
     this.userListService = userListService;
