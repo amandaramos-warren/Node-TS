@@ -2,7 +2,8 @@ import { Router } from 'express';
 import { inject, injectable } from 'tsyringe';
 import IController from '../interfaces/presentation/IController';
 import IUserRoutes from '../interfaces/presentation/IUserRoutes';
-import { MiddlewareType } from '../interfaces/presentation/MiddlewareType';
+import { MiddlewareType } from '../interfaces/middlewares/MiddlewareType';
+import { ControllerAdapterType } from '../interfaces/middlewares/ControllerAdapterType';
 
 @injectable()
 export default class UserRoutes implements IUserRoutes {
@@ -10,15 +11,18 @@ export default class UserRoutes implements IUserRoutes {
   userListController: IController;
   router: Router;
   userMiddleware: MiddlewareType;
+  controllerAdapter: ControllerAdapterType;
   constructor(
     @inject('UserCreateController') userCreateController: IController,
     @inject('UserListController') userListController: IController,
     @inject('userMiddleware') userMiddleware: MiddlewareType,
+    @inject('ControllerAdapter') controllerAdapter: ControllerAdapterType,
     @inject('Router') Router: Router
   ) {
     this.userCreateController = userCreateController;
     this.userListController = userListController;
     this.userMiddleware = userMiddleware;
+    this.controllerAdapter = controllerAdapter;
     this.router = Router;
     this.routes();
   }
@@ -27,8 +31,8 @@ export default class UserRoutes implements IUserRoutes {
     this.router.post(
       '/customer',
       this.userMiddleware,
-      this.userCreateController.handle
+      this.controllerAdapter(this.userCreateController)
     );
-    this.router.get('/get', this.userListController.handle);
+    this.router.get('/get', this.controllerAdapter(this.userListController));
   }
 }

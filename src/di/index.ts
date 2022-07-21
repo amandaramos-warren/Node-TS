@@ -13,8 +13,10 @@ import IUserRepository from '../interfaces/domain/IUserRepository';
 import UserRepository from '../domain/user/repository/UserRepository';
 import IUserValidation from '../interfaces/domain/IUserValidation';
 import UserValidation from '../domain/user/helper/UserValidation';
-import { MiddlewareType } from '../interfaces/presentation/MiddlewareType';
+import { MiddlewareType } from '../interfaces/middlewares/MiddlewareType';
 import userMiddleware from '../middlewares/userMiddleware';
+import { ControllerAdapterType } from '../interfaces/middlewares/ControllerAdapterType';
+import controllerAdapter from '../middlewares/controllerAdapter';
 
 container.register<Router>('Router', { useValue: Router() });
 
@@ -30,6 +32,10 @@ container.registerSingleton<IController>(
 
 container.register<MiddlewareType>('userMiddleware', {
   useValue: userMiddleware,
+});
+
+container.register<ControllerAdapterType>('ControllerAdapter', {
+  useValue: controllerAdapter,
 });
 
 container.registerSingleton<IUserCreateService>(
